@@ -13,7 +13,9 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    --primary: 240 5.9% 10%;
+    --primary: 240 5.9% 30%;
+    --primary-light: 240 5.9% 60%;
+    /* Color más claro para el estado normal */
     --primary-foreground: 0 0% 98%;
 
     --secondary: 240 4.8% 95.9%;
@@ -45,7 +47,9 @@
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 0 0% 98%;
+    --primary: 240 5.9% 30%;
+    --primary-light: 240 5.9% 60%;
+    /* Color más claro para el estado normal */
     --primary-foreground: 240 5.9% 10%;
 
     --secondary: 240 3.7% 15.9%;
@@ -70,9 +74,11 @@
   * {
     @apply border-border !scroll-smooth;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   button {
     @apply active:outline-none;
   }
@@ -83,44 +89,14 @@
     @apply font-bold text-4xl md:text-5xl text-center;
   }
 }
-@keyframes moveLeft {
-  0% {
-    transform: translateX(-100%);
-  }
 
-  100% {
-    transform: translateX(0);
-  }
+/* Hover effects */
+.hover\:bg-primary:hover {
+  background-color: var(--primary);
+  transition: background-color 0.4s ease-in-out;
 }
 
-@keyframes moveRight {
-  0% {
-    transform: translateX(100%);
-  }
-
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes moveLine {
-  0% {
-    width: 0;
-  }
-
-  100% {
-    width: 100%;
-  }
-}
-
-.animate-logoLeft {
-  animation: moveLeft 1s ease-out forwards;
-}
-
-.animate-logoRight {
-  animation: moveRight 1s ease-out forwards;
-}
-
-.animate-line {
-  animation: moveLine 1s ease-out forwards;
+.hover\:text-primary-foreground:hover {
+  color: var(--primary-foreground);
+  transition: color 0.4s ease-in-out;
 }
