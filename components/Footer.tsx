@@ -1,146 +1,63 @@
-"use client";
+/* eslint-disable @next/next/no-img-element */
+import React from 'react';
 
-import { useState, ChangeEvent, FormEvent } from "react";
-
-interface FormData {
-  name: string;
-  email: string;
-  message: string;
-}
-
-interface FormErrors {
-  name?: string;
-  email?: string;
-  message?: string;
-}
-
-const ContactForm: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const [errors, setErrors] = useState<FormErrors>({});
-  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
-  const [isSending, setIsSending] = useState<boolean>(false);
-
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const validate = (): boolean => {
-    const errors: FormErrors = {};
-    if (!formData.name) errors.name = "El nombre es obligatorio";
-    if (!formData.email) errors.email = "El correo electrónico es obligatorio";
-    if (!formData.message) errors.message = "El mensaje es obligatorio";
-    setErrors(errors);
-    return Object.keys(errors).length === 0;
-  };
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (validate()) {
-      setIsSending(true);
-      setTimeout(() => {
-        setIsSubmitted(true);
-        setFormData({ name: "", email: "", message: "" });
-        setErrors({});
-        setIsSending(false);
-        setTimeout(() => setIsSubmitted(false), 3000);
-      }, 2000);
-    }
-  };
-
+const Contacto: React.FC = () => {
   return (
-    <section id="contact" className="w-full max-w-4xl mx-auto py-12 px-6">
-      <h1 className="heading mb-8 text-white">Contáctanos</h1>
-      <div className="bg-[#010319] rounded-lg shadow-lg p-8">
-        {isSubmitted && (
-          <div className="mb-4 p-4 bg-green-100 text-green-800 rounded-lg">
-            ¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.
-          </div>
-        )}
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label
-              className="block text-lg font-medium mb-2 text-white"
-              htmlFor="name"
+    <section className="contact-section py-28 px-8">
+      <div className="container mx-auto flex flex-col lg:flex-row items-center lg:items-start">
+        {/* Información de Contacto */}
+        <div className="lg:w-2/3 text-center lg:text-left mb-16 lg:mb-0">
+          <h2 className="text-6xl md:text-7xl mb-14 tracking-wide title">Contacto</h2>
+          <div className="mb-12 contact-info email">
+            <p className="text-2xl font-semibold mb-4 title">Email</p>
+            <p className="text-lg mb-2">
+              Envíe sus datos personales y envíenos sus comentarios.
+            </p>
+            <a
+              href="mailto:info@brya.com.ar"
+              className="text-lg hover:text-primary-foreground"
             >
-              Nombre
-            </label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full p-3 rounded-lg border border-gray-600 bg-gray-800 text-white"
-            />
-            {errors.name && (
-              <p className="text-red-500 text-sm mt-1">{errors.name}</p>
-            )}
+              info@brya.com.ar
+            </a>
           </div>
-          <div>
-            <label
-              className="block text-lg font-medium mb-2 text-white"
-              htmlFor="email"
-            >
-              Correo Electrónico
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full p-3 rounded-lg border border-gray-600 bg-gray-800 text-white"
-            />
-            {errors.email && (
-              <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-            )}
+          <div className="mb-12 contact-info phones">
+            <p className="text-2xl font-semibold mb-4 title">Teléfonos</p>
+            <p className="text-lg mb-1">
+              Puede llamarnos a nuestras oficinas:
+            </p>
+            <p className="text-lg">Tel.: +54-11 4816-5140</p>
+            <p className="text-lg">Fax: +54-11 4816-5143</p>
           </div>
-          <div>
-            <label
-              className="block text-lg font-medium mb-2 text-white"
-              htmlFor="message"
-            >
-              Mensaje
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={4}
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full p-3 rounded-lg border border-gray-600 bg-gray-800 text-white resize-none"
-            />
-            {errors.message && (
-              <p className="text-red-500 text-sm mt-1">{errors.message}</p>
-            )}
+          <div className="contact-info address">
+            <p className="text-2xl font-semibold mb-4 title">Dirección</p>
+            <p className="text-lg">
+              Av. Santa Fe 1193, Piso 3 — Oficina Nº 11
+            </p>
+            <p className="text-lg">
+              Ciudad de Buenos Aires (C1059ABF)
+            </p>
+            <p className="text-lg">
+              Buenos Aires, Argentina
+            </p>
+            <a href="https://maps.app.goo.gl/f2UDg8WJVgW5L39R8" target="_blank" rel="noopener noreferrer">
+              <button className="mt-8 px-10 py-4 bg-gray-300 text-gray-800 text-lg rounded-lg hover:bg-gray-400 hover:text-gray-900 shadow-lg">
+                Cómo llegar
+              </button>
+            </a>
           </div>
-          <button
-            type="submit"
-            className={`w-full py-3 px-6 rounded-lg transition duration-300 ${
-              isSending
-                ? "bg-gray-600 text-white cursor-not-allowed"
-                : "bg-gray-500 text-white hover:bg-gray-600"
-            }`}
-          >
-            {isSending
-              ? "Enviando..."
-              : isSubmitted
-              ? "Enviado ✔"
-              : "Enviar Mensaje"}
-          </button>
-        </form>
+        </div>
+
+        {/* Imagen de Contacto */}
+        <div className="lg:w-1/2">
+          <img
+            src="/contact.jpg" // Asegúrate de colocar la ruta correcta de la imagen.
+            alt="Edificio"
+            className="rounded-lg shadow-2xl object-cover"
+          />
+        </div>
       </div>
     </section>
   );
 };
 
-export default ContactForm;
-
+export default Contacto;
