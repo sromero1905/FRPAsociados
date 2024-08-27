@@ -124,7 +124,8 @@
     color: hsl(var(--muted-foreground-light));
     /* Gris aún más claro en hover */
     text-decoration: underline;
-    transition: color 0.3s ease-in-out;
+    transition: color 0.6s ease-in-out;
+    /* Transición más lenta */
   }
 
   .contact-section .contact-info {
@@ -139,19 +140,22 @@
   }
 
   .contact-section button {
-    @apply mt-8 px-10 py-4 bg-gray-300 text-gray-800 text-lg rounded-lg shadow-lg;
-    background-color: hsl(0, 0%, 85%);
-    /* Gris claro para el fondo del botón */
-    color: hsl(0, 0%, 20%);
-    /* Gris oscuro para el texto del botón */
+    @apply mt-8 px-10 py-4 text-white text-lg rounded-lg border-2 border-white;
+    background-color: transparent;
+    /* Sin fondo */
+    border-color: hsl(0, 0%, 100%);
+    /* Borde blanco */
   }
 
   .contact-section button:hover {
-    background-color: hsl(0, 0%, 80%);
-    /* Gris aún más claro al hacer hover */
-    color: hsl(0, 0%, 15%);
-    /* Gris más oscuro al hacer hover */
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    background-color: hsl(0, 0%, 20%);
+    /* Fondo negro al hacer hover */
+    border-color: hsl(0, 0%, 100%);
+    /* Borde blanco */
+    color: hsl(0, 0%, 100%);
+    /* Texto blanco al hacer hover */
+    transition: background-color 0.6s ease-in-out, color 0.6s ease-in-out;
+    /* Transición más lenta */
   }
 
   .contact-section img {

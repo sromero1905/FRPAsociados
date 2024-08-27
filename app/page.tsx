@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import LoadingScreen from '@/components/LoadingScreen'; 
 import HeroSection from '@/components/Hero'; 
 import Grid from "@/components/Grid";
-import Contacto from '@/components/Footer';
+import Contacto from '@/components/Contact';
 import Clients from "@/components/Clients";
 import Approach from "@/components/Approach";
 import Experience from "@/components/Experience";
