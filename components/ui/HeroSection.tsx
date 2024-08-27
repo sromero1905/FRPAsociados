@@ -11,7 +11,7 @@ export function HeroSection() {
       {/* Imagen de fondo desenfocada */}
       <div className="absolute inset-0 overflow-hidden">
         <Image
-          src="/back.jpg"
+          src="/pexels-pixabay-273682.jpg"
           alt="Background"
           layout="fill"
           objectFit="cover"
@@ -22,17 +22,24 @@ export function HeroSection() {
       <div className="relative z-10 px-4 py-16 max-w-screen-lg mx-auto text-center">
         {/* Títulos y texto */}
         <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
+          initial={{ opacity: 0, y: 40, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{
+            duration: 1.5,
+            ease: [0.6, 0.05, -0.01, 0.9],
+          }}
           className="heading text-white"
         >
           Legal Excellence in Real Estate
         </motion.h1>
         <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
+          initial={{ opacity: 0, y: 30, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{
+            duration: 1.5,
+            ease: [0.6, 0.05, -0.01, 0.9],
+            delay: 0.2,
+          }}
           className="mt-4 text-lg text-gray-300"
         >
           Providing expert legal services for all your real estate needs.
@@ -42,7 +49,7 @@ export function HeroSection() {
         <div className="mt-8 flex justify-center">
           <motion.div
             initial={{ opacity: 1 }}
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
             <Button
