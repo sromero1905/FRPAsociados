@@ -19,22 +19,22 @@ const Contacto: React.FC = () => {
               Envíe sus datos personales y envíenos sus comentarios.
             </p>
             <a
-              href="mailto:info@brya.com.ar"
+              href="mailto:info@frp.com.ar"
               className="text-lg hover:text-primary-foreground"
             >
-              info@brya.com.ar
+              info@frp.com.ar
             </a>
           </div>
           <div className="mb-12 contact-info phones">
             <p className="text-2xl font-semibold mb-4 title flex items-center">
               <FontAwesomeIcon icon={faPhone} className="mr-4" />
-              Teléfonos
+              Teléfono
             </p>
             <p className="text-lg mb-1">
               Puede llamarnos a nuestras oficinas:
             </p>
-            <p className="text-lg">Tel.: +54-11 4816-5140</p>
-            <p className="text-lg">Fax: +54-11 4816-5143</p>
+            <p className="text-lg">Tel.: +54-11 5369-0500</p>
+    
           </div>
           <div className="contact-info address">
             <p className="text-2xl font-semibold mb-4 title flex items-center">
@@ -42,10 +42,10 @@ const Contacto: React.FC = () => {
               Dirección
             </p>
             <p className="text-lg">
-              Av. Santa Fe 1193, Piso 3 — Oficina Nº 11
+              Dr. Tomás Manuel de Anchorena 1626
             </p>
             <p className="text-lg">
-              Ciudad de Buenos Aires (C1059ABF)
+              Ciudad de Buenos Aires (C1425ELL)
             </p>
             <p className="text-lg">
               Buenos Aires, Argentina
@@ -61,7 +61,7 @@ const Contacto: React.FC = () => {
         {/* Imagen de Contacto */}
         <div className="lg:w-1/2">
           <img
-            src="/contact.jpg" // Asegúrate de colocar la ruta correcta de la imagen.
+            src="/contact.jpg" 
             alt="Edificio"
             className="rounded-lg shadow-2xl object-cover"
           />

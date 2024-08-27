@@ -22,7 +22,7 @@
 
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 4.3% 85%;
-    /* Gris aún más claro */
+
 
     --accent: 240 4.8% 95.9%;
     --accent-foreground: 240 5.9% 10%;
@@ -89,7 +89,7 @@
   }
 }
 
-/* Estilos específicos para la sección de contacto */
+
 @layer components {
   .contact-section {
     @apply bg-black text-foreground p-8 rounded-lg shadow-lg;
@@ -100,32 +100,32 @@
 
   .contact-section h2 {
     @apply text-white;
-    /* Color blanco para el título principal */
+
   }
 
   .contact-section .title {
     @apply text-white;
-    /* Color blanco para los títulos específicos */
+
   }
 
   .contact-section p {
     @apply text-lg md:text-xl leading-relaxed;
     color: hsl(var(--muted-foreground));
-    /* Gris aún más claro para el resto del texto */
+   
   }
 
   .contact-section a {
     @apply underline;
     color: hsl(var(--muted-foreground));
-    /* Gris aún más claro por defecto */
+   
   }
 
   .contact-section a:hover {
     color: hsl(var(--muted-foreground-light));
-    /* Gris aún más claro en hover */
+
     text-decoration: underline;
     transition: color 0.6s ease-in-out;
-    /* Transición más lenta */
+
   }
 
   .contact-section .contact-info {
@@ -136,7 +136,7 @@
   .contact-section .contact-info.phones,
   .contact-section .contact-info.address {
     @apply text-gray-300;
-    /* Gris aún más claro para los datos específicos */
+
   }
 
   .contact-section button {
@@ -149,13 +149,9 @@
 
   .contact-section button:hover {
     background-color: hsl(0, 0%, 20%);
-    /* Fondo negro al hacer hover */
     border-color: hsl(0, 0%, 100%);
-    /* Borde blanco */
     color: hsl(0, 0%, 100%);
-    /* Texto blanco al hacer hover */
     transition: background-color 0.6s ease-in-out, color 0.6s ease-in-out;
-    /* Transición más lenta */
   }
 
   .contact-section img {
