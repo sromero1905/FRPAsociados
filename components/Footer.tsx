@@ -1,55 +1,146 @@
-import { FaLocationArrow } from "react-icons/fa6";
+"use client";
 
-import { socialMedia } from "@/data";
-import MagicButton from "./MagicButton";
+import { useState, ChangeEvent, FormEvent } from "react";
 
-const Footer = () => {
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+interface FormErrors {
+  name?: string;
+  email?: string;
+  message?: string;
+}
+
+const ContactForm: React.FC = () => {
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [isSending, setIsSending] = useState<boolean>(false);
+
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const validate = (): boolean => {
+    const errors: FormErrors = {};
+    if (!formData.name) errors.name = "El nombre es obligatorio";
+    if (!formData.email) errors.email = "El correo electrónico es obligatorio";
+    if (!formData.message) errors.message = "El mensaje es obligatorio";
+    setErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (validate()) {
+      setIsSending(true);
+      setTimeout(() => {
+        setIsSubmitted(true);
+        setFormData({ name: "", email: "", message: "" });
+        setErrors({});
+        setIsSending(false);
+        setTimeout(() => setIsSubmitted(false), 3000);
+      }, 2000);
+    }
+  };
+
   return (
-    <footer className="w-full pt-20 pb-10" id="contact">
-      {/* background grid */}
-      <div className="w-full absolute left-0 -bottom-72 min-h-96">
-        <img
-          src="/footer-grid.svg"
-          alt="grid"
-          className="w-full h-full opacity-50 "
-        />
-      </div>
-
-      <div className="flex flex-col items-center">
-        <h1 className="heading lg:max-w-[45vw]">
-          Ready to take <span className="text-purple">your</span> digital
-          presence to the next level?
-        </h1>
-        <p className="text-white-200 md:mt-10 my-5 text-center">
-          Reach out to me today and let&apos;s discuss how I can help you
-          achieve your goals.
-        </p>
-        <a href="mailto:contact@jsmastery.pro">
-          <MagicButton
-            title="Let's get in touch"
-            icon={<FaLocationArrow />}
-            position="right"
-          />
-        </a>
-      </div>
-      <div className="flex mt-16 md:flex-row flex-col justify-between items-center">
-        <p className="md:text-base text-sm md:font-normal font-light">
-          Copyright © 2024 Adrian Hajdin
-        </p>
-
-        <div className="flex items-center md:gap-3 gap-6">
-          {socialMedia.map((info) => (
-            <div
-              key={info.id}
-              className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300"
+    <section id="contact" className="w-full max-w-4xl mx-auto py-12 px-6">
+      <h1 className="heading mb-8 text-white">Contáctanos</h1>
+      <div className="bg-[#010319] rounded-lg shadow-lg p-8">
+        {isSubmitted && (
+          <div className="mb-4 p-4 bg-green-100 text-green-800 rounded-lg">
+            ¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.
+          </div>
+        )}
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label
+              className="block text-lg font-medium mb-2 text-white"
+              htmlFor="name"
             >
-              <img src={info.img} alt="icons" width={20} height={20} />
-            </div>
-          ))}
-        </div>
+              Nombre
+            </label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full p-3 rounded-lg border border-gray-600 bg-gray-800 text-white"
+            />
+            {errors.name && (
+              <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+            )}
+          </div>
+          <div>
+            <label
+              className="block text-lg font-medium mb-2 text-white"
+              htmlFor="email"
+            >
+              Correo Electrónico
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full p-3 rounded-lg border border-gray-600 bg-gray-800 text-white"
+            />
+            {errors.email && (
+              <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+            )}
+          </div>
+          <div>
+            <label
+              className="block text-lg font-medium mb-2 text-white"
+              htmlFor="message"
+            >
+              Mensaje
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows={4}
+              value={formData.message}
+              onChange={handleChange}
+              className="w-full p-3 rounded-lg border border-gray-600 bg-gray-800 text-white resize-none"
+            />
+            {errors.message && (
+              <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+            )}
+          </div>
+          <button
+            type="submit"
+            className={`w-full py-3 px-6 rounded-lg transition duration-300 ${
+              isSending
+                ? "bg-gray-600 text-white cursor-not-allowed"
+                : "bg-gray-500 text-white hover:bg-gray-600"
+            }`}
+          >
+            {isSending
+              ? "Enviando..."
+              : isSubmitted
+              ? "Enviado ✔"
+              : "Enviar Mensaje"}
+          </button>
+        </form>
       </div>
-    </footer>
+    </section>
   );
 };
 
-export default Footer;
+export default ContactForm;
+
