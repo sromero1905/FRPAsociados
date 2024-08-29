@@ -1,11 +1,17 @@
 import React from 'react';
 import { FaBalanceScale, FaBuilding, FaGavel, FaUsers, FaShieldAlt, FaHandshake, FaBriefcase, FaLandmark } from 'react-icons/fa';
+import { useInView } from 'react-intersection-observer';
 
 const AreasDePractica = () => {
+  const { ref: sectionRef, inView: sectionInView } = useInView({
+    triggerOnce: true, // La animación se dispara solo una vez
+    threshold: 0.1, // Se activa cuando el 10% del elemento es visible
+  });
+
   return (
-    <section className="my-24 py-16 bg-black"> {/* Fondo negro para el componente */}
+    <section className="my-24 py-16 bg-black" ref={sectionRef}> {/* Fondo negro para el componente */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className={`text-center mb-12 transition-opacity duration-1000 ${sectionInView ? 'opacity-100' : 'opacity-0'}`}>
           <h2 className="text-4xl font-bold text-white heading">
             Áreas de Práctica
           </h2>
@@ -24,7 +30,10 @@ const AreasDePractica = () => {
             { icon: FaBriefcase, title: 'Derecho Corporativo', description: 'Ofrecemos asesoramiento en derecho corporativo, ayudando a las empresas a cumplir con la normativa y optimizar su estructura legal.' },
             { icon: FaLandmark, title: 'Inmobiliario', description: 'Proveemos asesoramiento en derecho inmobiliario, cubriendo todo el proceso de adquisición, venta y administración de propiedades.' }
           ].map((area, index) => (
-            <div key={index} className="relative p-6 bg-black text-white rounded-lg shadow-lg">
+            <div 
+              key={index} 
+              className={`relative p-6 bg-black text-white rounded-lg shadow-lg transition-transform transform duration-1000 ${sectionInView ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+            >
               <area.icon className="text-gray-400 w-12 h-12 mb-4" />
               <h3 className="text-xl font-semibold mb-2">{area.title}</h3>
               <p className="text-gray-400">{area.description}</p>

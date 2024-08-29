@@ -1,10 +1,12 @@
+/* Importar las fuentes desde Fontsource */
+@import "@fontsource/poppins";
+
+/* Importar Tailwind CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Importar las fuentes desde Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap');
-
+/* Definir las variables CSS para los colores y el diseño */
 @layer base {
   :root {
     --background: 0 0% 0%;
@@ -73,6 +75,7 @@
   }
 }
 
+/* Estilos globales */
 @layer base {
   * {
     @apply border-border !scroll-smooth;
@@ -80,7 +83,7 @@
 
   body {
     @apply bg-background text-foreground;
-    /* Asegúrate de que el fondo del body sea negro */
+    /* Fondo negro */
   }
 
   button {
@@ -89,36 +92,61 @@
 }
 
 @layer utilities {
-  .heading {
+  .hero-heading {
     @apply font-bold text-4xl md:text-5xl text-center;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Poppins', sans-serif;
+    /* Aplicar la fuente Poppins */
+  }
+
+  .hero-paragraph {
+    @apply mt-4 text-lg md:text-xl leading-relaxed;
+    font-family: 'Poppins', sans-serif;
+    /* Aplicar la fuente Poppins */
   }
 }
 
+/* Estilos específicos para el componente HeroSection */
 @layer components {
+  .hero-section {
+    @apply bg-gray-800 text-white p-8 rounded-lg shadow-lg;
+    font-family: 'Poppins', sans-serif;
+    /* Aplicar la fuente Poppins */
+  }
+
+  .hero-section h1 {
+    @apply text-5xl font-bold mb-4;
+    font-family: 'Poppins', sans-serif;
+    /* Aplicar la fuente Poppins */
+  }
+
+  .hero-section p {
+    @apply text-lg md:text-xl leading-relaxed;
+    font-family: 'Poppins', sans-serif;
+    /* Aplicar la fuente Poppins */
+  }
+
   .contact-section {
     @apply bg-black text-foreground p-8 rounded-lg shadow-lg;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     max-width: 1200px;
     margin: 0 auto;
   }
 
   .contact-section h2 {
     @apply text-white;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Lora', serif;
     font-size: 3rem;
-    /* Ajusta el tamaño según tus necesidades */
   }
 
   .contact-section .title {
     @apply text-white;
-    font-family: 'Playfair Display', serif;
+    font-family: 'Lora', serif;
   }
 
   .contact-section p {
     @apply text-lg md:text-xl leading-relaxed;
     color: hsl(var(--muted-foreground));
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
   }
 
   .contact-section a {
@@ -145,9 +173,7 @@
   .contact-section button {
     @apply mt-8 px-10 py-4 text-white text-lg rounded-lg border-2 border-white;
     background-color: transparent;
-    /* Sin fondo */
     border-color: hsl(0, 0%, 100%);
-    /* Borde blanco */
   }
 
   .contact-section button:hover {
@@ -163,15 +189,4 @@
     height: auto;
     max-height: 600px;
   }
-}
-
-/* Hover effects */
-.hover\:bg-primary:hover {
-  background-color: var(--primary);
-  transition: background-color 0.4s ease-in-out;
-}
-
-.hover\:text-primary-foreground:hover {
-  color: var(--primary-foreground);
-  transition: color 0.4s ease-in-out;
 }

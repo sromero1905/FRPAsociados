@@ -1,8 +1,21 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const Footer = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true, // La animación se dispara solo una vez
+    threshold: 0.1, // El footer debe estar al menos un 10% visible para activar la animación
+  });
+
   return (
-    <footer className="bg-background text-center mt-16 w-full">
+    <motion.footer
+      ref={ref}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: inView ? 1 : 0 }}
+      transition={{ duration: 1.2, ease: 'easeInOut' }}
+      className="bg-background text-center mt-16 w-full"
+    >
       <div className="w-full px-4 py-12 space-y-6">
         <h2 className="text-primary text-xl font-semibold">FRP ASOCIADOS</h2>
         <p className="text-sm text-muted-foreground">
@@ -23,7 +36,7 @@ const Footer = () => {
           </button>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 
