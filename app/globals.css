@@ -1,6 +1,8 @@
 /* Importar las fuentes desde Fontsource */
 @import "@fontsource/poppins";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 /* Importar Tailwind CSS */
 @tailwind base;
 @tailwind components;
@@ -190,9 +192,9 @@
 
   /* Estilos específicos para el componente AboutHero */
   .about-hero {
-    @apply bg-black text-white p-8 lg:p-12 flex flex-col items-center justify-center min-h-screen;
+    @apply bg-black text-white p-8 lg:pb-6 lg:pt-12 flex flex-col items-center justify-center min-h-[80vh];
     font-family: 'Poppins', sans-serif;
-    /* Aplicar la fuente Poppins */
+    /* Applying the Poppins font */
   }
 
   .about-hero h1 {
@@ -207,9 +209,6 @@
     @apply w-16 h-1 bg-white mx-auto mb-4;
   }
 
-  .about-hero button {
-    @apply bg-white text-black py-2 px-6 rounded-lg hover:bg-gray-100 transition duration-300;
-  }
 
   /* Estilos específicos para la nueva sección AboutUsSection */
   .about-us-section {
@@ -231,47 +230,64 @@
     @apply flex flex-col gap-6;
   }
 
-  /* Estilos específicos para la nueva sección VisionMissionValuesSection */
-  .vision-mission-values-section {
-    @apply bg-white text-black p-8 lg:p-12 text-center;
-    font-family: 'Poppins', sans-serif;
-  }
+  /* Estilos específicos para la sección VisionMissionValuesSection */
+.vision-mission-values-section {
+  @apply bg-white text-black p-8 lg:p-12 flex flex-col items-center justify-center gap-12;
+  font-family: 'Poppins', sans-serif;
+}
 
-  .vision-mission-values-section h2 {
-    @apply text-3xl font-bold mb-4;
-  }
+.vision-mission-values-section .motion-div {
+  @apply text-center;
+  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+}
 
-  .vision-mission-values-section p {
-    @apply text-lg leading-relaxed mb-6;
-  }
+.vision-mission-values-section .section-title {
+  @apply text-2xl lg:text-3xl font-semibold mb-4;
+}
 
-  /* Estilos específicos para el componente InfoSection */
+.vision-mission-values-section .section-text {
+  @apply text-base lg:text-lg leading-relaxed;
+  @apply max-w-2xl mx-auto;
+}
+
+
   .info-section {
-    @apply bg-gray-900 text-white p-8 lg:p-12 flex flex-col lg:flex-row items-center justify-center gap-6;
+    @apply bg-gray-100 text-gray-800 p-12 lg:p-16 flex flex-col lg:flex-row items-center justify-center gap-12;
     font-family: 'Poppins', sans-serif;
+    border-radius: 12px;
   }
 
   .info-section .text-container {
-    @apply flex-1;
+    @apply flex-1 text-center lg:text-left;
   }
 
-  .info-section .text-container h2 {
-    @apply text-3xl font-bold mb-4;
+  .info-section .section-title {
+    @apply text-4xl lg:text-5xl font-bold mb-10;
   }
 
-  .info-section .text-container p {
-    @apply text-lg leading-relaxed mb-4;
+  .info-section .section-text {
+    @apply text-lg lg:text-xl leading-relaxed;
+    margin-bottom: 38px;
+    /* Reduce the bottom margin for tighter spacing */
+  }
+
+  /* Optional: Additional styling for improved aesthetics */
+  .info-section .section-text:last-of-type {
+    margin-bottom: 0;
+    /* Remove bottom margin from the last paragraph */
   }
 
   .info-section .image-container {
-    @apply flex-shrink-0;
+    @apply flex-shrink-0 lg:w-1/2;
+    margin-right: -120px;
+    padding-left: 30px;
   }
 
   .info-section img {
-    @apply rounded-lg shadow-lg;
-    max-width: 100%;
-    height: auto;
-    max-height: 400px;
-    /* Ajustar altura máxima para la imagen */
+    @apply rounded-lg shadow-lg object-cover;
+    width: auto;
+    height: 110%;
+    max-height: 600px;
+    max-width: 400px;
   }
 }

@@ -10,7 +10,7 @@ const AboutHero: React.FC = () => {
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 1, ease: "easeOut" }}
     >
-      <div className="text-center max-w-2xl mb-18 mt-8">
+      <div className="text-center max-w-2xl mb-18 mt-6 mb-20">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
