@@ -19,9 +19,9 @@ const Navbar: React.FC = () => {
           <div className="flex items-center min-w-max">
             <Link href="/" className="relative flex items-center gap-2.5">
               <img
-                src="/logo-right.png" // Ruta al nuevo logotipo en la carpeta public
+                src="/logo-right.png"
                 alt="Logo"
-                className="w-18 h-4" // Ajusta el tamaño a tus necesidades
+                className="w-18 h-4"
               />
             </Link>
           </div>
@@ -30,32 +30,32 @@ const Navbar: React.FC = () => {
             className={`absolute top-full translate-y-10 opacity-0 invisible lg:visible lg:translate-y-0 lg:opacity-100 left-0 bg-black dark:bg-gray-950 lg:bg-transparent py-8 lg:py-0 px-5 sm:px-10 md:px-12 lg:px-0 lg:border-none w-full lg:top-0 lg:relative lg:w-max lg:flex lg:transition-none duration-300 ease-linear gap-x-4 ${isNavOpen ? "translate-y-0 opacity-100 visible" : "translate-y-10 opacity-0 invisible"}`}>
             <ul className="flex flex-col lg:flex-row gap-4 lg:items-center text-gray-300 dark:text-gray-300 lg:w-full lg:justify-start">
               <li>
-                <Link href="#" className="relative py-2.5 px-3 text-gray-300 hover:text-gray-100 group">
+                <Link href="/" className="relative py-2.5 px-3 text-gray-300 hover:text-gray-100 group">
                   Home
                   <span className="absolute left-0 bottom-0 w-0 h-px bg-gray-100 transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
                 </Link>
               </li>
               <li>
-                <Link href="#" className="relative py-2.5 px-3 text-gray-300 hover:text-gray-100 group">
+                <Link href="/aboutus" className="relative py-2.5 px-3 text-gray-300 hover:text-gray-100 group">
                   Sobre Nosotros
                   <span className="absolute left-0 bottom-0 w-0 h-px bg-gray-100 transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
                 </Link>
               </li>
               <li>
-                <Link href="#" className="relative py-2.5 px-3 text-gray-300 hover:text-gray-100 group">
+                <Link href="/services" className="relative py-2.5 px-3 text-gray-300 hover:text-gray-100 group">
                   Servicios
                   <span className="absolute left-0 bottom-0 w-0 h-px bg-gray-100 transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
                 </Link>
               </li>
               <li>
-                <Link href="#" className="relative py-2.5 px-3 text-gray-300 hover:text-gray-100 group">
+                <Link href="/contact" className="relative py-2.5 px-3 text-gray-300 hover:text-gray-100 group">
                   Contacto
                   <span className="absolute left-0 bottom-0 w-0 h-px bg-gray-100 transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
                 </Link>
               </li>
             </ul>
           </div>
-          <div className="flex items-center lg:hidden" style={{ transform: 'translateX(-10px)' }}> {/* Ajusta translateX(-10px) a tu necesidad */}
+          <div className="flex items-center lg:hidden" style={{ transform: 'translateX(-10px)' }}>
             <button
               data-toggle-navbar
               data-is-open={isNavOpen ? "true" : "false"}

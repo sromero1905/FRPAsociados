@@ -1,11 +1,10 @@
 "use client";
-
-import HeroSection from '@/components/Hero'; 
-import AreasDePractica from '@/components/ui/BentoGrid';
-import Contacto from '@/components/Contact';
+import { HeroSection } from '@/components/home/HeroSection';
+import AreasDePractica from '@/components/home/BentoGrid';
+import Contacto from '@/components/home/Contact';
 import Navbar from '@/components/Navbar'; 
 import Footer from '@/components/Footer';
-import LoadingScreen from '@/components/LoadingScreen'; 
+import LoadingScreen from '@/components/home/LoadingScreen'; 
 import { useState } from 'react';
 
 const Home = () => {
