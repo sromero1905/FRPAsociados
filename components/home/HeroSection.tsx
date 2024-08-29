@@ -62,15 +62,7 @@ export function HeroSection() {
           }}
           className="mt-8 flex justify-center"
         >
-          <Link href="#contact" passHref>
-            <Button
-              radius="full"
-              size="md"
-              className="bg-gray-800 text-white shadow-md hover:bg-gray-700 hover:shadow-lg transition-all duration-300 ease-in-out"
-            >
-              Contact Us
-            </Button>
-          </Link>
+          
         </motion.div>
       </div>
     </section>

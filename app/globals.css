@@ -12,33 +12,24 @@
     --background: 0 0% 0%;
     /* Fondo negro para toda la página */
     --foreground: 240 10% 3.9%;
-
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-
     --primary: 240 5.9% 30%;
     --primary-light: 240 5.9% 60%;
     --primary-foreground: 0 0% 98%;
-
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
-
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 4.3% 85%;
-
     --accent: 240 4.8% 95.9%;
     --accent-foreground: 240 5.9% 10%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
     --ring: 240 10% 3.9%;
-
     --radius: 0.5rem;
   }
 
@@ -46,29 +37,21 @@
     --background: 0 0% 0%;
     /* Fondo negro para toda la página en modo oscuro */
     --foreground: 0 0% 98%;
-
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
-
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
-
     --primary: 240 5.9% 30%;
     --primary-light: 240 5.9% 60%;
     --primary-foreground: 240 5.9% 10%;
-
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
-
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 4.6% 75%;
-
     --accent: 240 3.7% 15.9%;
     --accent-foreground: 0 0% 98%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
@@ -103,29 +86,45 @@
     font-family: 'Poppins', sans-serif;
     /* Aplicar la fuente Poppins */
   }
+
+  /* Estilos para animaciones de entrada */
+  .animate-fade-in {
+    @apply opacity-0;
+    @apply transition-opacity duration-700 ease-out;
+  }
+
+  .animate-fade-in.visible {
+    @apply opacity-100;
+  }
+
+  .animate-slide-in {
+    @apply transform translate-y-10 opacity-0;
+    @apply transition-transform duration-700 ease-out;
+  }
+
+  .animate-slide-in.visible {
+    @apply translate-y-0 opacity-100;
+  }
 }
 
+/* Estilos específicos para el componente HeroSection */
 @layer components {
   .hero-section {
-    @apply bg-gray-800 text-white p-8 rounded-lg shadow-lg;
+    @apply bg-gray-800 text-white p-8 lg:p-12 rounded-lg shadow-lg;
     font-family: 'Poppins', sans-serif;
     /* Aplicar la fuente Poppins */
   }
 
   .hero-section h1 {
-    @apply text-5xl font-bold mb-4;
-    font-family: 'Poppins', sans-serif;
-    /* Aplicar la fuente Poppins */
+    @apply text-4xl md:text-5xl font-bold mb-4 lg:mb-6;
   }
 
   .hero-section p {
     @apply text-lg md:text-xl leading-relaxed;
-    font-family: 'Poppins', sans-serif;
-    /* Aplicar la fuente Poppins */
   }
 
   .contact-section {
-    @apply bg-black text-foreground p-8 rounded-lg shadow-lg;
+    @apply bg-black text-foreground p-8 lg:p-12 rounded-lg shadow-lg;
     font-family: 'Open Sans', sans-serif;
     max-width: 1200px;
     margin: 0 auto;
@@ -134,7 +133,7 @@
   .contact-section h2 {
     @apply text-white;
     font-family: 'Lora', serif;
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .contact-section .title {
@@ -170,14 +169,13 @@
   }
 
   .contact-section button {
-    @apply mt-8 px-10 py-4 text-white text-lg rounded-lg border-2 border-white;
+    @apply mt-6 px-6 py-2 text-white text-lg rounded-lg border-2 border-white;
     background-color: transparent;
     border-color: hsl(0, 0%, 100%);
   }
 
   .contact-section button:hover {
-    background-color: hsl(0, 0%, 20%);
-    border-color: hsl(0, 0%, 100%);
+    @apply bg-gray-800 border-gray-800;
     color: hsl(0, 0%, 100%);
     transition: background-color 0.6s ease-in-out, color 0.6s ease-in-out;
   }
@@ -186,44 +184,94 @@
     @apply rounded-lg shadow-2xl object-cover;
     width: 100%;
     height: auto;
-    max-height: 600px;
+    max-height: 400px;
+    /* Ajustar altura máxima para la imagen */
   }
 
   /* Estilos específicos para el componente AboutHero */
   .about-hero {
-    @apply bg-black text-white p-8 lg:p-16 flex flex-col items-center justify-center;
+    @apply bg-black text-white p-8 lg:p-12 flex flex-col items-center justify-center min-h-screen;
     font-family: 'Poppins', sans-serif;
-    min-height: 50vh;
-    /* Ajusta la altura mínima según sea necesario */
+    /* Aplicar la fuente Poppins */
   }
 
   .about-hero h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold mb-4 lg:mb-6;
-    margin-top: 1rem;
-    /* Ajusta el margen superior si es necesario */
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-    /* Agrega un sutil efecto de sombra para el texto */
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-4;
   }
 
   .about-hero p {
-    @apply text-lg md:text-xl leading-relaxed mb-6;
-    margin-top: 0.5rem;
-    /* Ajusta el margen superior si es necesario */
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    /* Agrega un sutil efecto de sombra para el texto */
+    @apply text-lg md:text-xl leading-relaxed mb-4;
   }
 
   .about-hero .divider {
-    @apply w-24 h-1 bg-white mx-auto mb-6;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    /* Agrega un sutil efecto de sombra para la línea divisoria */
+    @apply w-16 h-1 bg-white mx-auto mb-4;
   }
 
   .about-hero button {
     @apply bg-white text-black py-2 px-6 rounded-lg hover:bg-gray-100 transition duration-300;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Agrega un sutil efecto de sombra para el botón */
-    font-weight: 600;
-    /* Ajusta el peso de la fuente para el botón */
+  }
+
+  /* Estilos específicos para la nueva sección AboutUsSection */
+  .about-us-section {
+    @apply bg-gray-100 text-black p-8 lg:p-12 flex flex-col lg:flex-row items-center justify-center gap-6;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .about-us-section .image-container {
+    @apply flex-shrink-0;
+  }
+
+  .about-us-section img {
+    @apply rounded-lg shadow-lg;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .about-us-section .text-container {
+    @apply flex flex-col gap-6;
+  }
+
+  /* Estilos específicos para la nueva sección VisionMissionValuesSection */
+  .vision-mission-values-section {
+    @apply bg-white text-black p-8 lg:p-12 text-center;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .vision-mission-values-section h2 {
+    @apply text-3xl font-bold mb-4;
+  }
+
+  .vision-mission-values-section p {
+    @apply text-lg leading-relaxed mb-6;
+  }
+
+  /* Estilos específicos para el componente InfoSection */
+  .info-section {
+    @apply bg-gray-900 text-white p-8 lg:p-12 flex flex-col lg:flex-row items-center justify-center gap-6;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .info-section .text-container {
+    @apply flex-1;
+  }
+
+  .info-section .text-container h2 {
+    @apply text-3xl font-bold mb-4;
+  }
+
+  .info-section .text-container p {
+    @apply text-lg leading-relaxed mb-4;
+  }
+
+  .info-section .image-container {
+    @apply flex-shrink-0;
+  }
+
+  .info-section img {
+    @apply rounded-lg shadow-lg;
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    /* Ajustar altura máxima para la imagen */
   }
 }
