@@ -231,24 +231,27 @@
   }
 
   /* Estilos específicos para la sección VisionMissionValuesSection */
-.vision-mission-values-section {
-  @apply bg-white text-black p-8 lg:p-12 flex flex-col items-center justify-center gap-12;
-  font-family: 'Poppins', sans-serif;
-}
+  .vision-mission-values-section {
+    @apply bg-white text-black p-8 lg:p-12 flex flex-col items-center justify-center gap-12;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .vision-mission-values-section .motion-div {
+    @apply text-center;
+    /* Eliminamos las transiciones CSS para evitar conflictos */
+  }
+  
+  .vision-mission-values-section .section-title {
+    @apply text-2xl lg:text-3xl font-semibold mb-4;
+  }
+  
+  .vision-mission-values-section .section-text {
+    @apply text-base lg:text-lg leading-relaxed;
+    @apply max-w-2xl mx-auto;
+  }
 
-.vision-mission-values-section .motion-div {
-  @apply text-center;
-  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
-}
 
-.vision-mission-values-section .section-title {
-  @apply text-2xl lg:text-3xl font-semibold mb-4;
-}
 
-.vision-mission-values-section .section-text {
-  @apply text-base lg:text-lg leading-relaxed;
-  @apply max-w-2xl mx-auto;
-}
 
 
   .info-section {
