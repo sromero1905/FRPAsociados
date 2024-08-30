@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
               </li>
               <li>
                 <Link href="/services" className="relative py-2.5 px-3 text-gray-300 hover:text-gray-100 group">
-                  Servicios
+                  Areas De Practica
                   <span className="absolute left-0 bottom-0 w-0 h-px bg-gray-100 transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
                 </Link>
               </li>

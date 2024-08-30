@@ -190,24 +190,27 @@
     /* Ajustar altura máxima para la imagen */
   }
 
-  /* Estilos específicos para el componente AboutHero */
-  .about-hero {
-    @apply bg-black text-white p-8 lg:pb-6 lg:pt-12 flex flex-col items-center justify-center min-h-[80vh];
-    font-family: 'Poppins', sans-serif;
-    /* Applying the Poppins font */
-  }
 
-  .about-hero h1 {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-4;
-  }
 
-  .about-hero p {
-    @apply text-lg md:text-xl leading-relaxed mb-4;
-  }
+    .about-hero {
+      @apply bg-black text-white p-8 lg:pb-6 lg:pt-12 flex flex-col items-center justify-center min-h-[80vh];
+      font-family: 'Poppins', sans-serif;
+      /* Applying the Poppins font */
+    }
+  
+    .about-hero h1 {
+      @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-4;
+    }
+  
+    .about-hero p {
+      @apply text-lg md:text-xl leading-relaxed mb-4;
+    }
+  
+    .about-hero .divider {
+      @apply w-16 h-1 bg-white mx-auto mb-4;
+    }
 
-  .about-hero .divider {
-    @apply w-16 h-1 bg-white mx-auto mb-4;
-  }
+
 
 
   /* Estilos específicos para la nueva sección AboutUsSection */
@@ -293,4 +296,16 @@
     max-height: 600px;
     max-width: 400px;
   }
+}
+
+/* Estilos específicos para la sección PracticeAreasHero */
+.practice-areas-hero {
+  background: linear-gradient(to bottom, #1f2937, #2d3748);
+}
+
+.practice-areas-hero .divider {
+  width: 4rem;
+  height: 0.25rem;
+  background-color: #a0aec0;
+  margin: 1rem auto;
 }
