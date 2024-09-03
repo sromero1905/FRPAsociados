@@ -97,7 +97,7 @@ const Contacto: React.FC = () => {
           <img
             src="/contact.jpg" 
             alt="Edificio"
-            className="rounded-lg shadow-2xl object-cover"
+            className="rounded-lg shadow-2xl object-cover " // Aquí ajustas la altura
           />
         </motion.div>
       </div>

@@ -1,27 +1,44 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const MoreInfoService: React.FC = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
   return (
-    <section className="moreinfo-service layout-container section-padding">
-      <div className="moreinfo-content">
-        <h1 className="typography-heading moreinfo-title">
-          Asesoramos a empresas en litigio & transacciones.
+    <section className="flex flex-col lg:flex-row items-center justify-between py-16 px-6 lg:px-24 bg-black text-white">
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 20 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        className="lg:w-2/5 mb-10 lg:mb-0"
+      >
+        <h1 className="text-3xl lg:text-4xl font-semibold mb-4 leading-tight">
+          Asesoramos a empresas en litigio & transacciones
         </h1>
-        <p className="typography-paragraph moreinfo-subtitle">
-          Nos comprometemos a proporcionar asesoramiento legal excepcional y soluciones estratégicas a empresas y particulares en un entorno jurídico, económico y tecnológico en constante evolución.
+        <p className="text-md lg:text-lg text-gray-400 leading-relaxed">
+          Proporcionamos asesoramiento legal excepcional y soluciones estratégicas en un entorno jurídico, económico y tecnológico en constante evolución.
         </p>
-        <div className="moreinfo-buttons">
-          <button className="button-primary">Contactanos</button>
-          <button className="button-outline">Saber más</button>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 20 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        className="lg:w-2/5"
+      >
+        <div className="overflow-hidden rounded-lg">
+          <img 
+            src="/path-to-your-image.jpg" 
+            alt="Oficina moderna" 
+            className="object-cover w-full h-full grayscale"
+          />
         </div>
-      </div>
-      <div className="moreinfo-image-container">
-        <img 
-          src="/path-to-your-image.jpg" 
-          alt="Imagen de oficina" 
-          className="image-responsive moreinfo-image" 
-        />
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -186,8 +186,8 @@
     @apply rounded-lg shadow-2xl object-cover;
     width: 100%;
     height: auto;
-    max-height: 400px;
-    /* Ajustar altura máxima para la imagen */
+    max-height: 600px;
+  
   }
 
 
@@ -195,7 +195,7 @@
     .about-hero {
       @apply bg-black text-white p-8 lg:pb-6 lg:pt-12 flex flex-col items-center justify-center min-h-[80vh];
       font-family: 'Poppins', sans-serif;
-      /* Applying the Poppins font */
+
     }
   
     .about-hero h1 {
@@ -390,47 +390,3 @@
 }
 
 
-
-.moreinfo-service {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  text-align: center;
-  background-color: white;
-}
-
-.moreinfo-content {
-  max-width: 800px;
-  margin-bottom: 2rem;
-}
-
-.moreinfo-title {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: var(--color-primary);
-}
-
-.moreinfo-subtitle {
-  font-size: 1.25rem;
-  margin-bottom: 1.5rem;
-  color: var(--color-text-main);
-}
-
-.moreinfo-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-}
-
-.moreinfo-image-container {
-  width: 100%;
-  max-width: 1200px;
-}
-
-.moreinfo-image {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
