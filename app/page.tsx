@@ -8,17 +8,17 @@ import LoadingScreen from '@/components/home/LoadingScreen';
 import { useState } from 'react';
 
 const Home = () => {
-  const [loading, setLoading] = useState(true);
+ /*  const [loading, setLoading] = useState(true);
 
   const handleLoaded = () => {
     setLoading(false);
-  };
+  }; */
 
   return (
     <>
-      {loading ? (
+      {/* {loading ? (
         <LoadingScreen onLoaded={handleLoaded} />
-      ) : (
+      ) : ( */}
         <main className="relative bg-black flex flex-col overflow-hidden w-full">
           <Navbar /> 
           <div className="max-w-7xl w-full mx-auto sm:px-10 px-5">
@@ -28,7 +28,7 @@ const Home = () => {
           </div>
           <Footer />
         </main>
-      )}
+     {/*  )} */}
     </>
   );
 };
