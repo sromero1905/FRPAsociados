@@ -33,10 +33,12 @@ const MoreInfoService: React.FC = () => {
       >
         <div className="overflow-hidden rounded-lg">
           <img 
-            src="/path-to-your-image.jpg" 
-            alt="Oficina moderna" 
-            className="object-cover w-full h-full grayscale"
-          />
+  src="/sign.jpg" 
+  alt="Firma" 
+  className="object-cover w-full h-full grayscale"
+  style={{ transform: 'scale(0.8)' }} 
+/>
+
         </div>
       </motion.div>
     </section>

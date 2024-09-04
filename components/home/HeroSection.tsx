@@ -2,8 +2,6 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Button } from "@nextui-org/react";
-import Link from "next/link";
 import { useInView } from "react-intersection-observer";
 
 export function HeroSection() {
@@ -15,15 +13,15 @@ export function HeroSection() {
   return (
     <section
       ref={heroRef}
-      className="relative h-screen flex items-center justify-center overflow-hidden bg-black"
+      className="relative h-screen flex items-center justify-center overflow-hidden bg-black w-full"
     >
       <div className="absolute inset-0 overflow-hidden">
         <Image
           src="/back.jpg"
           alt="Background"
           fill
-          objectFit="cover"
-          className="filter blur-md brightness-50"
+          className="object-cover w-full h-full filter blur-sm brightness-50"
+          style={{ transform: 'scale(1.2)' }} // Escalar la imagen para cubrir más área
         />
       </div>
 
@@ -62,7 +60,7 @@ export function HeroSection() {
           }}
           className="mt-8 flex justify-center"
         >
-          
+          {/* Aquí puedes agregar botones u otros componentes */}
         </motion.div>
       </div>
     </section>

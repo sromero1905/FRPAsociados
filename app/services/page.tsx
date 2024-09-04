@@ -7,7 +7,7 @@ import PracticesSection from '@/components/service/PracticesSection';
 import MoreInfoService from '@/components/service/MoreService';
 const AboutPage = () => {
   return (
-    <main className="relative bg-black flex flex-col overflow-hidden w-full">
+  <main className="relative bg-black flex flex-col overflow-hidden w-full min-h-screen">
       <Navbar />
       <PracticeAreasHero/>
       <PracticesSection/>
