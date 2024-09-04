@@ -18,10 +18,10 @@ const MoreInfoService: React.FC = () => {
         className="lg:w-2/5 mb-10 lg:mb-0"
       >
         <h1 className="text-3xl lg:text-4xl font-semibold mb-4 leading-tight">
-          Asesoramos a empresas en litigio & transacciones
+         Gestión Integral para Consorcios y Propiedades Horizontales
         </h1>
         <p className="text-md lg:text-lg text-gray-400 leading-relaxed">
-          Proporcionamos asesoramiento legal excepcional y soluciones estratégicas en un entorno jurídico, económico y tecnológico en constante evolución.
+          Brindamos asistencia continua en la gestión de consorcios, enfocándonos en la resolución de conflictos, el asesoramiento legal en asambleas, y la representación en la Ciudad Autónoma de Buenos Aires. Implementamos sistemas de comunicación eficientes para optimizar la gestión de cobranzas y notificaciones. Además, realizamos informes técnicos, apoyamos en la compra, venta y administración de inmuebles, y participamos en el desarrollo de proyectos inmobiliarios y la gestión integral de alquileres.
         </p>
       </motion.div>
 
