@@ -13,7 +13,11 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <div data-nav-overlay aria-hidden="true" className={`fixed bg-gray-800/40 inset-0 z-30 ${isNavOpen ? "block" : "hidden"} lg:hidden`} />
+      <div
+        data-nav-overlay
+        aria-hidden="true"
+        className={`fixed bg-black/40 inset-0 z-30 ${isNavOpen ? "block" : "hidden"} lg:hidden`}
+      />
       <header className="sticky top-0 w-full flex items-center h-20 z-40 bg-black text-white backdrop-filter backdrop-blur-lg">
         <nav className="relative mx-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5 flex gap-x-5 justify-between items-center">
           <div className="flex items-center min-w-max">
@@ -26,9 +30,11 @@ const Navbar: React.FC = () => {
             </Link>
           </div>
 
-          <div data-navbar
-            className={`absolute top-full translate-y-10 opacity-0 invisible lg:visible lg:translate-y-0 lg:opacity-100 left-0 bg-black dark:bg-gray-950 lg:bg-transparent py-8 lg:py-0 px-5 sm:px-10 md:px-12 lg:px-0 lg:border-none w-full lg:top-0 lg:relative lg:w-max lg:flex lg:transition-none duration-300 ease-linear gap-x-4 ${isNavOpen ? "translate-y-0 opacity-100 visible" : "translate-y-10 opacity-0 invisible"}`}>
-            <ul className="flex flex-col lg:flex-row gap-4 lg:items-center text-gray-300 dark:text-gray-300 lg:w-full lg:justify-start">
+          <div
+            data-navbar
+            className={`absolute top-full translate-y-10 opacity-0 invisible lg:visible lg:translate-y-0 lg:opacity-100 left-0 bg-black py-8 lg:py-0 px-5 sm:px-10 md:px-12 lg:px-0 lg:border-none w-full lg:top-0 lg:relative lg:w-max lg:flex lg:transition-none duration-300 ease-linear gap-x-4 ${isNavOpen ? "translate-y-0 opacity-100 visible" : "translate-y-10 opacity-0 invisible"}`}
+          >
+            <ul className="flex flex-col lg:flex-row gap-4 lg:items-center text-gray-300 lg:w-full lg:justify-start">
               <li>
                 <Link href="/" className="relative py-2.5 px-3 text-gray-300 hover:text-gray-100 group">
                   Home
@@ -55,7 +61,7 @@ const Navbar: React.FC = () => {
               </li>
             </ul>
           </div>
-          <div className="flex items-center lg:hidden" style={{ transform: 'translateX(-10px)' }}>
+          <div className="flex items-center lg:hidden" style={{ transform: "translateX(-10px)" }}>
             <button
               data-toggle-navbar
               data-is-open={isNavOpen ? "true" : "false"}
@@ -63,8 +69,8 @@ const Navbar: React.FC = () => {
               className="outline-none pl-3 relative py-3"
               onClick={toggleNavbar}
             >
-              <span id="line-1" aria-hidden="true" className="h-0.5 w-6 rounded bg-gray-300 dark:bg-gray-600 transition duration-300"></span>
-              <span id="line-2" aria-hidden="true" className="mt-2 h-0.5 w-6 rounded bg-gray-300 dark:bg-gray-600 transition duration-300"></span>
+              <span id="line-1" aria-hidden="true" className="h-0.5 w-6 rounded bg-gray-300 transition duration-300"></span>
+              <span id="line-2" aria-hidden="true" className="mt-2 h-0.5 w-6 rounded bg-gray-300 transition duration-300"></span>
             </button>
           </div>
         </nav>
